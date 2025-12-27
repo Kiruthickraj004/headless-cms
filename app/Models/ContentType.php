@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class ContentType extends Model
 {
+    protected $fillable = [
+        'project_id',
+        'name',
+        'slug',
+    ];
     public function project()
 {
     return $this->belongsTo(Project::class);
