@@ -15,12 +15,17 @@ class Project extends Model
         'user_id',
     ];
     protected static function booted()
-{
-    static::creating(function ($project) {
-        $project->api_key = Str::random(40);
-        
-    });
-}
+    {
+        static::creating(function ($project) {
+            $project->api_key = Str::random(40);
+            
+        });
+    }
+
+    public function contentTypes()
+    {
+        return $this->hasMany(ContentType::class);
+    }
 
 }
 

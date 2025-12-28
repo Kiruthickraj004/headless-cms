@@ -2,7 +2,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-
+use App\Http\Controllers\Api\ContentApiController;
 /*
 |--------------------------------------------------------------------------
 | Auth Routes
@@ -32,5 +32,7 @@ Route::post('/login', function (Request $request) {
 Route::middleware('auth:sanctum')->get('/me', function (Request $request) {
     return $request->user();
 });
+
+Route::get('{project}/{type}', [ContentApiController::class, 'index']);
 
 ?>
